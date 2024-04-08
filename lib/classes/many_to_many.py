@@ -67,10 +67,14 @@ class Player:
 
     @classmethod
     def highest_scored(cls, game):
+        # Calculate the average score for each player in the class
         average = [game.average_score(player) for player in cls.all]
+        # If there are no average scores, return None
         if not average:
             return None
+        # Find the index and value of the highest average score
         highest_record_tuple = max(enumerate(average), key=lambda x: x[1])
+        # Return the index of the player with the highest average score
         return highest_record_tuple[0]
 
 
